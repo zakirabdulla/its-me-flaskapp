@@ -1,0 +1,44 @@
+{% extends 'layout.html'%}
+
+{%block title%}Qeydiyyat {%endblock%}
+
+{%block content%} 
+
+<div class="container d-flex flex-column align-items-center justif-content-center">
+    <h2 class="text-center">Qeydiyyat</h2>
+    <form method="POST" class="row">
+        {{form.csrf_token()}}
+        <div class="col-12 col-lg-6">
+            <label for="username">Username:</label><br>
+            {{form.username(class='form-control form-control-lg')}}
+            <small class="text-muted">Hərflər, rəqəmlər və "-"</small>
+            <small class="text-danger">{{form.username.errors.0}}</small>
+            <!-- <input type="text" class="form-control form-control-lg" name='username'> -->
+        </div>
+        <div class="col-12 col-lg-6">
+            <label for="email">Email:</label><br>
+            {{form.email(class='form-control form-control-lg')}}
+            <!-- <input type="text" class="form-control form-control-lg" name='email'> -->
+            <small class="text-danger"> {{form.email.errors.0}}</small>  
+        </div>
+        <div class="col-12 col-lg-6">
+            <label for="password">Parol:</label><br>
+            {{form.password(class='form-control form-control-lg',minlength='8')}}
+            <small class="text-muted">min. 8, maks. 30 simvol</small>
+            <small class="text-danger">{{form.password.errors.0}}</small>
+            <!-- <input type="password" class="form-control form-control-lg" name='password'> -->
+        </div>
+        <div class="col-12 col-lg-6">
+            <label for="confirm">Parolun təkrarı:</label><br>
+            {{form.confirm(class='form-control form-control-lg',minlength='8')}}
+            <!-- <input type="password" class="form-control form-control-lg" name='confirm'> -->
+        </div>
+        <div class="col-12 offset-lg-4 col-lg-4">
+
+            <button class="btn text-white mt-4 w-100" style="background-color: #9575CD;" type="submit">Qeydiyyat</button>
+        </div>
+    </form>
+</div>
+
+
+{%endblock%}

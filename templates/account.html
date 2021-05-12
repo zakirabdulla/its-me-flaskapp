@@ -1,0 +1,197 @@
+{% extends 'layout.html' %}
+
+{%block title%} {{current_user}}{%endblock%}
+
+{%block content%}
+
+<div class="container">
+    <div class="d-flex align-items-end justify-content-between mt-4">
+        <h1 class="display-3 mb-0"> <i style="color: #9575CD;" class="fas fa-user"></i> {{current_user}}</h1>
+        <a href="#" class="text-end" style="color: #9575CD; font-size: 20px;"><i class="fas fa-pen"></i></a>
+
+    </div>
+    <hr class="mt-0 mb-0">  
+      <div class="row mt-5">
+          <div class="col-12 col-xl-4 ">
+              <div class="border rounded shadow p-3 mb-4">
+                  <div class="element d-flex justify-content-between">
+                      <p class="mb-0">Username</p>
+                      <strong><p class="mb-0">{{current_user.username}}</p></strong> 
+                    </div>
+                    <hr class="mt-1">
+                    <div class="element d-flex justify-content-between">
+                        <p class="mb-0">Email</p>
+                        <strong><p class="mb-0">{{current_user.email}}</p></strong> 
+                    </div>
+                    <hr class="mt-1">
+                    <div class="element d-flex justify-content-between">
+                        <p class="mb-0">Created at</p>
+                        <strong><p class="mb-0">11.05.2021</p></strong> 
+                    </div>
+                    <hr class="mt-1">
+                    <div class="element d-flex justify-content-between">
+                        <p class="mb-0">Last login</p>
+                        <strong><p class="mb-0">11.05.2021 12:55</p></strong> 
+                    </div>
+                </div>
+                <div class="border rounded shadow p-3 mt-2">
+                    <div class="element d-flex justify-content-between align-items-center">
+                        <p class="mb-0">Password</p>
+                        <small class="mb-0 text-muted">last update 11.05.2021 12:55</small>
+                        <a href=""><button style="background-color: #9575CD;" class="btn btn-sm btn-primary"><i class="far fa-edit"></i></button></a>
+                    </div>
+                </div>
+                <button class="btn w-100 text-white mt-2" data-bs-toggle="modal" data-bs-target="#QRmodal" style="background-color: #9575CD;"><i class="fas fa-qrcode"></i> Generate QRcode</button>
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="border rounded shadow p-3 mt-2 mt-xl-0">
+
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col" class="d-flex justify-content-between align-items-end"> Links
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#addLinkModal"><i class="fas fa-plus-square" style="color: #9575CD; font-size: 20px;"></i></a>
+                         </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="transform: rotate(0);" >
+                            <th scope="row"><a href="#1" class="stretched-link btn btn-sm">1</a></th>
+                            <td colspan="2"><i class="fab fa-whatsapp text-success"></i> Personal</td>
+                        </tr>
+                        <tr style="transform: rotate(0);">
+                            <th scope="row"><a href="#2" class="stretched-link btn btn-sm ">2</a></th>
+                            <td colspan="2"><i class="fab fa-facebook text-primary"></i> Like me</td>
+                        </tr>
+                        <tr style="transform: rotate(0);">
+                            <th scope="row"><a href="#3" class="stretched-link btn btn-sm ">1</a></th>
+                            <td colspan="2"><i class="fab fa-facebook-messenger text-primary"></i> Text me</td>
+                        </tr>
+                        <tr style="transform: rotate(0);">
+                            <th scope="row"><a href="#4" class="stretched-link btn btn-sm ">1</a></th>
+                            <td colspan="2"><i class="fab fa-instagram text-warning"></i> Follow me</td>
+                        </tr>
+                        <tr style="transform: rotate(0);">
+                            <th scope="row"><a href="#" class="stretched-link btn btn-sm ">1</a></th>
+                            <td colspan="2"><i class="fab fa-youtube text-danger"></i> Subscribe me</td>
+                        </tr>   
+                        
+                    </tbody>
+                </table>
+                <a href="#" class="btn text-white w-100" style="background-color: #9575CD;">See all</a>
+            </div>
+
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="border rounded shadow p-3 mt-2 mt-xl-0">
+
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col"> Contacts </th>
+                            <th scope="col"> </th>
+                            <th scope="col"> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="transform: rotate(0);" >
+                            <th scope="row"><a href="#1" class="stretched-link btn btn-sm">1</a></th>
+                            <td colspan="3"><i class="fab fa-whatsapp"></i> Personal</td>
+                        </tr>
+                        <tr style="transform: rotate(0);">
+                            <th scope="row"><a href="#2" class="stretched-link btn btn-sm ">2</a></th>
+                            <td colspan="3"><i class="fab fa-facebook"></i> Like me</td>
+                        </tr>
+                        <tr style="transform: rotate(0);">
+                            <th scope="row"><a href="#3" class="stretched-link btn btn-sm ">1</a></th>
+                            <td colspan="3"><i class="fab fa-facebook-messenger"></i> Text me</td>
+                        </tr>
+                        <tr style="transform: rotate(0);">
+                            <th scope="row"><a href="#4" class="stretched-link btn btn-sm ">1</a></th>
+                            <td colspan="3"><i class="fab fa-instagram"></i> Follow me</td>
+                        </tr>
+                        <tr style="transform: rotate(0);">
+                            <th scope="row"><a href="#" class="stretched-link btn btn-sm ">1</a></th>
+                            <td colspan="3"><i class="fab fa-youtube"></i> Subscribe me</td>
+                        </tr>   
+                        
+                    </tbody>
+                </table>
+                <a href="#" class="btn text-white w-100" style="background-color: #9575CD;">See all</a>
+            </div>
+
+        </div>
+        
+    </div>
+
+      </div>
+</div>
+  <!-- Add Link Modal -->
+  <div class="modal fade" id="addLinkModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #9575CD;">
+          <h5 class="modal-title"  id="exampleModalLabel">Add link</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form action="" method="POST">
+            <div class="d-flex justify-content-around">
+                {{linkform.csrf_token()}}
+                <input type="radio" class="btn-check" name="type" value="wp" id="wp" autocomplete="off">
+                <label class="btn btn-outline-success" for="wp" data-bs-toggle="tooltip" data-bs-placement="top" title="Whatsapp"><i class="fab fa-whatsapp"></i></label>
+                
+                <input type="radio" class="btn-check" name="type" value="fb" id="fb" autocomplete="off">
+                <label class="btn btn-outline-primary" for="fb" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook"><i class="fab fa-facebook"></i></label>
+                
+                <input type="radio" class="btn-check" name="type" value="fbmsg" id="fbmsg" autocomplete="off">
+                <label class="btn btn-outline-primary" for="fbmsg" data-bs-toggle="tooltip" data-bs-placement="top" title="FB Messenger"><i class="fab fa-facebook-messenger"></i></label>
+                
+                <input type="radio" class="btn-check" name="type" value="ytb" id="ytb" autocomplete="off">
+                <label class="btn btn-outline-danger" for="ytb" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"><i class="fab fa-youtube"></i></label>
+                
+                <input type="radio" class="btn-check" name="type" value="ig" id="ig" autocomplete="off">
+                <label class="btn btn-outline-warning" for="ig" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram"><i class="fab fa-instagram"></i></label>
+                
+                <input type="radio" class="btn-check" name="type" value="other" id="other" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="other" data-bs-toggle="tooltip" data-bs-placement="top" title="Other"><i class="fas fa-link"></i></label>
+            </div>
+            <label class="mt-1" for="adress">Link adress:</label> <br>
+            <input type="text" class="form-control" name="adress" id='adress' required>
+            {{linkform.adress.errors.0}}
+            <label class="mt-1" for="title">Title:</label> <br>
+            <input type="text" class="form-control" name="title" id='title' required>
+            <button class="btn text-white mt-4 w-100" style="background-color: #9575CD;" type="submit">Add</button>
+        </form>          
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+{%endblock%}
+
+{%block js%}
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+document.addEventListener("DOMContentLoaded", () =>{
+    const myModal =  new bootstrap.Modal(document.getElementById('addLinkModal'))
+    
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    // if(urlParams.get('form')=='addlink'){
+    //     myModal.show()
+    // }
+        {% if linkform.errors %}
+        myModal.show()
+        {%endif%}
+});
+</script>
+{%endblock%}

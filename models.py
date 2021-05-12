@@ -15,11 +15,18 @@ class CustomMixin():
 
 class User(UserMixin,CustomMixin,db.Model):
     id = db.Column(db.Integer,primary_key=True)
-    username = db.Column(db.String(30),nullable=False)
+    username = db.Column(db.String(30),nullable=False,unique=True)
     password = db.Column(db.String(255),nullable=False)
-    email = db.Column(db.String(50),nullable=False)
+    email = db.Column(db.String(50),nullable=False,unique=True)
     links = db.relationship('Link', backref='user', lazy=True)
     socials = db.relationship('Social', backref='user', lazy=True)
+
+    def __repr__(self):
+        return self.username
+
+    def __init__(self,password,*args,**kwargs):
+        self.password = generate_password_hash(password)
+        super(UserMixin,self).__init__(*args,**kwargs)
 
 class Link(CustomMixin,db.Model):
     id = db.Column(db.Integer,primary_key=True)

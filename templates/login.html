@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{%block title%}Giriş{%endblock%}
+
+{% block content %}
+<div class="container d-flex flex-column align-items-center">
+    <h2 class="text-center">Giriş</h2>
+    <form action="/login" method="POST">
+        <div>
+            <label for="usernameOrEmail">Username/Email:</label><br>
+            <input type="text" class="form-control form-control-lg" name='EmailOrUsername'>
+        </div>
+        <div >
+            <label for="password">Parol:</label><br>
+            <input type="password" class="form-control form-control-lg" name='password'>
+        </div>
+        <button class="btn text-white mt-4 w-100" style="background-color: #9575CD;" type="submit">Giriş</button>
+    </form>
+</div>
+{%endblock%}
